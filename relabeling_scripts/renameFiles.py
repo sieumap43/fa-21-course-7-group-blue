@@ -27,9 +27,9 @@ for idx, row in df.iterrows():
 	fname = f'{idx}_{codedSpeed}_{codedAngle}.jpg'
 	#print(fname)
 
-	srcLeft = Path(row['left'])
-	srcCenter = Path(row['center'])
-	srcRight = Path(row['right'])
+	srcLeft = Path(row['left'].strip())
+	srcCenter = Path(row['center'].strip())
+	srcRight = Path(row['right'].strip())
 
 	# Try to copy source files into destination directories, re-labeled
 	try:
@@ -38,6 +38,7 @@ for idx, row in df.iterrows():
 		copyfile(srcRight, destRight / fname)
 		copyCount += 1
 	except Exception as e:
+		print(e)
 		continue
 
 print(f'Successfully copied {copyCount}/{len(df)} frames.')
