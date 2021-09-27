@@ -25,7 +25,7 @@ for idx, row in df.iterrows():
 	codedSpeed = int(row['speed'] * 1000)
 	codedAngle = int(row['angle'] * 1000)
 	fname = f'{idx}_{codedSpeed}_{codedAngle}.jpg'
-	print(fname)
+	#print(fname)
 
 	srcLeft = Path(row['left'])
 	srcCenter = Path(row['center'])
